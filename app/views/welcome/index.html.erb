@@ -1,5 +1,7 @@
 <h1> Emprego Já </h1>
 
-<p> Vaga de Dev </p>
-<p> Campus Code </p>
-<p> São Paulo </p>
+<% @jobs.each do |job| %>
+  <h1> <%= link_to job.title, job %> </h1>
+  <%= job.company %>
+  <%= job.location %>
+<% end %>
