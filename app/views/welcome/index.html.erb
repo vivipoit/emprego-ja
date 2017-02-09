@@ -4,4 +4,7 @@
   <h1> <%= link_to job.title, job %> </h1>
   <%= job.company %>
   <%= job.location %>
+  <% if job.featured == true %>
+     <strong>Destaque</strong>
+  <% end %>
 <% end %>
