@@ -2,7 +2,7 @@
 
 <% @jobs.each do |job| %>
   <h1> <%= link_to job.title, job %> </h1>
-  <%= job.company %>
+  <%= job.company.name %>
   <%= job.location %>
   <% if job.featured == true %>
      <strong>Destaque</strong>
