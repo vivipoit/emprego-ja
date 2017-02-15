@@ -3,6 +3,7 @@ class JobsController < ApplicationController
   before_action :job_find, only: [:show, :edit, :update]
 
   def new
+    @categories = Category.all
     @companies = Company.all
     @job = Job.new
   end
@@ -14,6 +15,7 @@ class JobsController < ApplicationController
       redirect_to @job
     else
       @companies = Company.all
+      @categories = Category.all
       render 'new'
     end
 
@@ -24,6 +26,7 @@ class JobsController < ApplicationController
 
   def edit
     @companies = Company.all
+    @categories = Category.all
   end
 
   def update
@@ -31,14 +34,14 @@ class JobsController < ApplicationController
       redirect_to @job
     else
       @companies = Company.all
+      @categories = Category.all
       render 'edit'
     end
   end
 
-  private
   def job_params
     params.require(:job).permit(:title,
-      :location,:category,:company_id,:description,:featured)
+      :location,:category_id,:company_id,:description,:featured)
   end
 
   def job_find
