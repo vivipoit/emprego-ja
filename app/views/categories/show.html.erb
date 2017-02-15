@@ -1,0 +1,11 @@
+<h1><%= @category.name%></h1>
+
+
+<% if @jobs.any?%>
+  <% @jobs.each do |job| %>
+  <%= job.title %>
+  <%= job.location %>
+  <% end %>
+<% else %>
+  Nenhuma vaga disponível
+<% end %>
