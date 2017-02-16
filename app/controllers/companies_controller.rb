@@ -16,4 +16,20 @@ class CompaniesController < ApplicationController
     @jobs = @company.jobs
   end
 
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    @company = Company.find(params[:id])
+
+    if @company.update(params.require(:company)
+      .permit(:name,:location,:mail,:phone))
+      redirect_to @company
+    else
+      render 'edit'
+    end
+
+  end
+
 end
