@@ -1,5 +1,7 @@
-<% if @category.errors.any? %>
-    Não foi possível criar a categoria
+<% @category.errors.full_messages.each do |message| %>
+    <%= message %>
+
+
 <% end %>
 
 <%= form_for @category do |f|%>
