@@ -3,3 +3,8 @@
 <%= @company.mail %>
 <%= @company.phone %>
 <%= render(@jobs) || "Nenhuma vaga disponível" %>
+
+
+<% if @company.premium?%>
+<%= image_tag 'estrela.png'%>
+<% end %>
